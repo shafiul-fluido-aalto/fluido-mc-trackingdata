@@ -85,7 +85,7 @@ express()
     // retrieve clicks
     SoapClient.retrieve(
       'ClickEvent',
-      ["EventDate","SendID","SubscriberKey","URL"],
+      ["EventDate","SendID","SubscriberKey"],
       reqoptions,
       function( err, response ) {
         if ( err ) {
@@ -100,7 +100,7 @@ express()
             if(!tracking[row['SendID']]){
               tracking[row['SendID']] = { Sent: [], Click: [], Open:[] };
             }
-            tracking[row['SendID']]['Click'].push(row.EventDate+' '+row.URL);
+            tracking[row['SendID']]['Click'].push(row.EventDate);
           }
           calls++;
           if(calls==callsToWait){
