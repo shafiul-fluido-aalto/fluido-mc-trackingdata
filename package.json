@@ -10,6 +10,9 @@
     "start": "node index.js",
     "test": "node test.js"
   },
+  "dependencies": {
+    "express": "^4.15.2",
+  },
   "devDependencies": {
     "request": "^2.81.0",
     "tape": "^4.7.0"
