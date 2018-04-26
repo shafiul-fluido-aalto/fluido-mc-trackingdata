@@ -100,7 +100,7 @@ express()
             if(!tracking[row['SendID']]){
               tracking[row['SendID']] = { Sent: [], Click: [], Open:[] };
             }
-            tracking[row['SendID']]['Click'].push(row.EventDate+' 'row.URL);
+            tracking[row['SendID']]['Click'].push(row.EventDate+' '+row.URL);
           }
           calls++;
           if(calls==callsToWait){
