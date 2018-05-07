@@ -32,7 +32,10 @@ module.exports = {
       if (err) {
         // error here
         console.log('error');
-        console.log(err);
+        console.log(response);
+        res.setHeader('Content-Type', 'application/json');
+        res.send(JSON.stringify({ error: err }));
+        return ;
       }
 
       // will be delivered with 200, 400, 401, 500, etc status codes
