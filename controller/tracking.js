@@ -3,8 +3,19 @@ module.exports = {
 
 
     getTracking : function(req, res){
-      
+
+      //authentication
+      authController.auth(req, res)
+
+      // runtime variables
       var contactKey = req.query.contactkey;
+      var tracking = {};
+      var calls = 0;
+      var callsToWait = 3;
+
+      // SDK
+      var SoapClient = new FuelSoap(options);
+
 
       // MC API  authentication
       var FuelSoap = require('fuel-soap');
@@ -16,13 +27,8 @@ module.exports = {
         soapEndpoint: process.env.API_URL
       };
 
-      var SoapClient = new FuelSoap(options);
 
-
-      var tracking = {};
-      var calls = 0;
-      var callsToWait = 3;
-
+      // search by SubscriberKey
       var reqoptions = {
         filter: {
           leftOperand: 'SubscriberKey',
