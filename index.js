@@ -2,7 +2,7 @@ const express = require('express')
 const path = require('path')
 const PORT = process.env.PORT || 5000
 const trackingController = require('./controller/tracking');
-const authController = require('./controller/auth');
+
 const bodyParser = require('body-parser');
 
 const app = express()

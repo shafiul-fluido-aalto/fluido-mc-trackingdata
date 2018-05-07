@@ -5,6 +5,7 @@ module.exports = {
     getTracking : function(req, res){
 
       //authentication
+      const authController = require('./controller/auth');
       authController.auth(req, res)
 
       // runtime variables
