@@ -10,9 +10,13 @@ module.exports = {
       var secret = process.env.SECRET;
       var decodedJWT = jwt.decode(req.body.jwt, secret);
       console.log(decodedJWT);
-    /*  res.setHeader('Content-Type', 'application/json');
-      res.send(JSON.stringify({ decodedJWT }));
-      return ;*/
+      if(!decodedJWT.jti){
+        res.setHeader('Content-Type', 'application/json');
+        res.send(JSON.stringify({ decodedJWT }));
+        return ;
+      }else{
+        return res.redirect('/app');
+      }
     },
 
 
