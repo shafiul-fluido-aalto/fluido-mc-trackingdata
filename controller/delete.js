@@ -16,7 +16,7 @@ module.exports = {
         }
     };
 
-    const RestClient = new FuelRest(optionsRest);
+    const RestClient = new FuelRest(optionsRestReq);
 
 
     RestClient.post(optionsRestReq, (err, response) => {
