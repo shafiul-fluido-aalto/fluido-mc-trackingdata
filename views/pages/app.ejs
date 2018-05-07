@@ -4,9 +4,58 @@
   <title>Fluido - MarketingCloud - Tracking and deletion APP</title>
 </head>
 <body>
-  <h1>Readme</h1>
+  <h1>Fluido - Tracking and Deletion APP</h1>
   <p>
-    Documentation of heroku / nodejs app
+    Documentation of heroku / nodejs app implemented by Fluido
+  </p>
+  <h2>Flow</h2>
+  <h3>Tracking data</h3>
+  <p>
+    Salesforce Custom App calls Heroku endpoint (/tracking/) with clientid and clientsecret paramters. Given paramaters must match with Heroku env variables: <br/>
+    - APP_CLIENT_ID <br/>
+    - APP_CLIENT_SECRET <br/>
+  </p>
+  <p>
+    The app authenticates to Marketing Cloud SOAP API by using Heroku env variables: <br/>
+    - CLIENT_ID <br/>
+    - CLIENT_SECRET <br/>
+    - API_URL <br/>
+  </p>
+  <p>
+    The app fetches data from logs by given subscriberKey: <br/>
+    - Sents <br/>
+    - Clicks <br/>
+    - Opens <br/>
+  </p>
+  <p>
+    Request format: /tracking/?clientid=xxxx&sclientsecret=yyyy&contactkey=zzzzzz
+  </p>
+  <p>
+    Return format: json
+  </p>
+
+  <h3>Contact deletion</h3>
+  <p>
+    Salesforce Custom App calls Heroku endpoint (/delete/) with clientid and clientsecret paramters. Given paramaters must match with Heroku env variables: <br/>
+    - APP_CLIENT_ID <br/>
+    - APP_CLIENT_SECRET <br/>
+  </p>
+  <p>
+    The app authenticates to Marketing Cloud REST API by using Heroku env variables: <br/>
+    - CLIENT_ID <br/>
+    - CLIENT_SECRET <br/>
+  </p>
+  <p>
+    The app calls Marketing Cloud REST endpoint /contacts/v1/contacts/actions/delete?type=keys for deleting the contact on enterprsoe level from all studios: <br/>
+    - Email <br/>
+    - Mobile <br/>
+    - MobilePush <br/>
+  </p>
+  <p>
+    Request format: /delete/?clientid=xxxx&sclientsecret=yyyy&contactkey=zzzzzz
+  </p>
+  <p>
+    Return format: json
   </p>
 </body>
-</hyml>
+</html>
