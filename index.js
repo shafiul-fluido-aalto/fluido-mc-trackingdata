@@ -25,5 +25,7 @@ app.get('/tracking', (req, res) => {
     res.send(JSON.stringify({ error: 'ContactKey missing' }));
     return ;
   }
-  loginContoller.login(req, res)
+
+  // export tracking
+  trackingController.getTracking(req, res)
 })
