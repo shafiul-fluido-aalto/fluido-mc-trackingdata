@@ -56,8 +56,4 @@ app.post('/app', (req, res) => {
     //app ui
     appController.app(req, res)
   }
-
-
-
-
 })
