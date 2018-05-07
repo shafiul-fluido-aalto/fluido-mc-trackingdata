@@ -5,7 +5,6 @@ module.exports = {
 
     var contactKey = req.query.contactkey;
 
-
     const FuelRest = require('fuel-rest');
     const optionsRest = {
       auth: {
@@ -16,7 +15,6 @@ module.exports = {
     };
 
     const RestClient = new FuelRest(optionsRest);
-
 
     const optionsRestReq = {
       uri: '/contacts/v1/contacts/actions/delete?type=keys',
@@ -30,7 +28,7 @@ module.exports = {
 
     RestClient.post(optionsRestReq, (err, response) => {
       if (err) {
-        // error here
+
         console.log('error');
         console.log(response);
         res.setHeader('Content-Type', 'application/json');

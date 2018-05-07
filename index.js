@@ -37,22 +37,20 @@ app.post('/login', (req, res) => {
 
   //authentication
   loginContoller.login(req, res)
-
 })
 
 app.post('/app', (req, res) => {
 
-
   var jwt = require('jwt-simple');
-
-  console.log(req.body.jwt)
-
   var secret = process.env.SECRET;
+
+  // authentication
   var decodedJWT = jwt.decode(req.body.jwt, secret);
   console.log(decodedJWT);
   if(!decodedJWT.jti){
+    // error message - authentication fails
     res.setHeader('Content-Type', 'application/json');
-    res.send(JSON.stringify({ decodedJWT }));
+    res.send(JSON.stringify({ error: 'JWT fails, check that MC installed app secret matches with SECRET env variable.' }));
     return ;
   }else{
     //app ui
