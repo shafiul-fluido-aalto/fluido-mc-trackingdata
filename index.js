@@ -43,7 +43,7 @@ app.post('/login', (req, res) => {
 app.post('/app', (req, res) => {
 
   //authentication
-  loginContoller.login(req, res)
+  loginController.login(req, res)
 
   //app ui
   appController.app(req, res)
