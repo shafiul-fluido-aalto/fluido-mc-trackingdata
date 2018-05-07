@@ -4,7 +4,7 @@ module.exports = {
     console.log('delete')
 
     var contactKey = req.query.contactkey;
-
+    var FuelSoap = require('fuel-rest');
 
     const optionsRestReq = {
       uri: '/contacts/v1/contacts/actions/delete?type=keys',
