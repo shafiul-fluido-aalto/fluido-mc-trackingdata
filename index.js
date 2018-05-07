@@ -40,7 +40,7 @@ app.post('/login', (req, res) => {
 
 })
 
-app.get('/app', (req, res) => {
+app.post('/app', (req, res) => {
 
   //authentication
   loginContoller.login(req, res)
