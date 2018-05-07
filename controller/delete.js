@@ -38,13 +38,14 @@ module.exports = {
       // will be delivered with 200, 400, 401, 500, etc status codes
       // response.body === payload from response
       // response.res === full response from request client
-      console.log('response');
+
       console.log(response);
+      res.setHeader('Content-Type', 'application/json');
+      res.send(JSON.stringify(response));
+      return ;
     });
 
-    res.setHeader('Content-Type', 'application/json');
-    res.send(JSON.stringify({ Status: 'Deleted' }));
-    return ;
+
   }
 
 }
