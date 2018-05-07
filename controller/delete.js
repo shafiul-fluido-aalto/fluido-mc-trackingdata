@@ -5,7 +5,6 @@ module.exports = {
 
     var contactKey = req.query.contactkey;
 
-    const RestClient = new FuelRest(optionsRest);
 
     const optionsRestReq = {
       uri: '/contacts/v1/contacts/actions/delete?type=keys',
@@ -16,6 +15,8 @@ module.exports = {
           "DeleteOperationType": "ContactAndAttributes"
         }
     };
+
+    const RestClient = new FuelRest(optionsRest);
 
 
     RestClient.post(optionsRestReq, (err, response) => {
