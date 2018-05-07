@@ -4,7 +4,19 @@ module.exports = {
     console.log('delete')
 
     var contactKey = req.query.contactkey;
-    var FuelSoap = require('fuel-rest');
+
+
+    const FuelRest = require('fuel-rest');
+    const optionsRest = {
+      auth: {
+        clientId: process.env.CLIENT_ID,
+        clientSecret: process.env.CLIENT_SECRET
+      },
+      //origin: 'https://webservice.s10.exacttarget.com/Service.asmx' // default --> https://www.exacttargetapis.com
+    };
+
+    const RestClient = new FuelRest(optionsRest);
+
 
     const optionsRestReq = {
       uri: '/contacts/v1/contacts/actions/delete?type=keys',
@@ -15,9 +27,6 @@ module.exports = {
           "DeleteOperationType": "ContactAndAttributes"
         }
     };
-
-    const RestClient = new FuelRest(optionsRestReq);
-
 
     RestClient.post(optionsRestReq, (err, response) => {
       if (err) {
