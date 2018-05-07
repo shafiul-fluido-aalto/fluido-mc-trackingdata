@@ -2,10 +2,9 @@ module.exports = {
 
 
 
-    getTracking : function(req, res){
+    getTracking : function(req, res, authController){
 
       //authentication
-      const authController = require('./controller/auth');
       authController.auth(req, res)
 
       // runtime variables
