@@ -42,7 +42,7 @@ module.exports = {
 
       console.log(response);
       res.setHeader('Content-Type', 'application/json');
-      res.send(JSON.stringify(response));
+      res.status(200).send(JSON.stringify(response));
       return ;
     });
 
