@@ -60,7 +60,7 @@ module.exports = {
             if(calls==callsToWait){
               console.log( tracking );
               res.setHeader('Content-Type', 'application/json');
-              res.send(JSON.stringify({ tracking }));
+              res.status(200).send(JSON.stringify({ tracking }));
               return ;
             }
           }catch(e){
@@ -93,7 +93,7 @@ module.exports = {
             if(calls==callsToWait){
               console.log( tracking );
               res.setHeader('Content-Type', 'application/json');
-              res.send(JSON.stringify({ tracking }));
+              res.status(200).send(JSON.stringify({ tracking }));
               return ;
             }
           }catch(e){
@@ -128,7 +128,7 @@ module.exports = {
 
               console.log( tracking );
               res.setHeader('Content-Type', 'application/json');
-              res.send(JSON.stringify({ tracking }));
+              res.status(200).send(JSON.stringify({ tracking }));
               return ;
             }
           }catch(e){
