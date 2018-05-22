@@ -46,6 +46,7 @@ module.exports = {
             console.log( err );
             return;
           }
+          console.log( response );
 
           try{
             var rows =  response.body.Results;
@@ -79,7 +80,7 @@ module.exports = {
             console.log( err );
             return;
           }
-
+          console.log( response );
           try{
             var rows =  response.body.Results;
             for (var i=0; i < rows.length; i++){
@@ -112,7 +113,7 @@ module.exports = {
             console.log( err );
             return;
           }
-
+          console.log( response );
           try{
             var rows =  response.body.Results;
             for (var i=0; i < rows.length; i++){
