@@ -10,15 +10,20 @@ module.exports = {
       var calls = 0;
       var callsToWait = 3;
 
-
+      var bu_identifier = "";
+      if(eq.query.bu > 1){
+        var bu_identifier = "_"+eq.query.bu;
+      }
+      var clientid = process.env['CLIENT_ID'+bu_identifier]
+      var clientsecret = process.env['CLIENT_SECRET'+bu_identifier]
 
 
       // MC API  authentication
       var FuelSoap = require('fuel-soap');
       var options = {
         auth: {
-          clientId: process.env.CLIENT_ID,
-          clientSecret: process.env.CLIENT_SECRET
+          clientId: clientid,
+          clientSecret: clientsecret
         },
         soapEndpoint: process.env.API_URL
       };
