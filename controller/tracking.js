@@ -11,7 +11,7 @@ module.exports = {
       var callsToWait = 3;
 
       var bu_identifier = "";
-      if(req.query.bu > 1){
+      if(req.query.bu > 0){
         var bu_identifier = "_"+req.query.bu;
       }
       var clientid = process.env['CLIENT_ID'+bu_identifier]
