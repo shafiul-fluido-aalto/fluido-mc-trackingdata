@@ -71,7 +71,8 @@ module.exports = {
               console.log( tracking );
               //res.setHeader('Content-Type', 'application/json');
               //res.status(200).send(JSON.stringify({ tracking }));
-              res.write(JSON.stringify({ tracking })).end();
+              res.write(JSON.stringify({ tracking }));
+              res.end();
               return ;
             }else res.write("");
           }catch(e){
@@ -105,7 +106,8 @@ module.exports = {
               console.log( tracking );
               //res.setHeader('Content-Type', 'application/json');
               //res.status(200).send(JSON.stringify({ tracking }));
-              res.write(JSON.stringify({ tracking })).end();
+              res.write(JSON.stringify({ tracking }));
+              res.end();
               return ;
             }else res.write("");
           }catch(e){
@@ -141,7 +143,8 @@ module.exports = {
               console.log( tracking );
               //res.setHeader('Content-Type', 'application/json');
               //res.status(200).send(JSON.stringify({ tracking }));
-              res.write(JSON.stringify({ tracking })).end();
+              res.write(JSON.stringify({ tracking }));
+              res.end();
               return ;
             }else res.write("");
           }catch(e){
