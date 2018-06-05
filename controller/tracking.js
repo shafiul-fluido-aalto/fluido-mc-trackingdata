@@ -157,7 +157,7 @@ module.exports = {
       (function waitResults () {
          setTimeout(function () {
             console.log('waiting... ' + calls);
-            if(calls==callsToWait && waits > 35){
+            if(calls==callsToWait && waits > 65){
               res.write(JSON.stringify({ tracking }));
               res.end();
               return ;
