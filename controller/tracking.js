@@ -67,14 +67,6 @@ module.exports = {
               tracking[row['SendID']]['Sent'].push(row.EventDate);
             }
             calls++;
-            if(calls==callsToWait){
-              console.log( tracking );
-              //res.setHeader('Content-Type', 'application/json');
-              //res.status(200).send(JSON.stringify({ tracking }));
-              //res.write(JSON.stringify({ tracking }));
-              //res.end();
-              //return ;
-            }else res.write("\n");
           }catch(e){
             console.log(e);
           }
@@ -102,14 +94,6 @@ module.exports = {
               tracking[row['SendID']]['Click'].push(row.EventDate);
             }
             calls++;
-            if(calls==callsToWait){
-              console.log( tracking );
-              //res.setHeader('Content-Type', 'application/json');
-              //res.status(200).send(JSON.stringify({ tracking }));
-              //res.write(JSON.stringify({ tracking }));
-              //res.end();
-              //return ;
-            }else res.write("\n");
           }catch(e){
             console.log(e);
           }
@@ -136,35 +120,26 @@ module.exports = {
               }
               tracking[row['SendID']]['Open'].push(row.EventDate);
             }
-
             calls++;
-            if(calls==callsToWait){
-
-              console.log( tracking );
-              //res.setHeader('Content-Type', 'application/json');
-              //res.status(200).send(JSON.stringify({ tracking }));
-              //res.write(JSON.stringify({ tracking }));
-              //res.end();
-              //return ;
-            }else res.write("\n");
           }catch(e){
             console.log(e);
           }
         }
       );
 
-      var waits = 0;
-      (function waitResults () {
+
+      (function keepALiveAndSendResults () {
          setTimeout(function () {
             console.log('waiting... ' + calls);
-            if(calls==callsToWait && waits > 65){
+            if(calls==callsToWait){
+              console.log('All responses ready. Output the json.');
               res.write(JSON.stringify({ tracking }));
               res.end();
               return ;
             }else{
               waits++;
-              res.write(" ");
-              waitResults();
+              res.write(" "); // keep the connection over (Heroku has 30sec hard coded timeout for client requests )
+              keepALiveAndSendResults();
             }
          }, 1000)
       })();
