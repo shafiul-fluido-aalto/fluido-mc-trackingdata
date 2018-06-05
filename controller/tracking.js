@@ -137,7 +137,7 @@ module.exports = {
               res.end();
               return ;
             }else{
-              res.write(" "); // keep the connection over (Heroku has 30sec hard coded timeout for client requests )
+              res.write(" "); // keep the connection open (Heroku has 30sec hard coded timeout for client requests )
               keepALiveAndSendResults();
             }
          }, 1000)
