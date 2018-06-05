@@ -71,9 +71,9 @@ module.exports = {
               console.log( tracking );
               //res.setHeader('Content-Type', 'application/json');
               //res.status(200).send(JSON.stringify({ tracking }));
-              res.write(JSON.stringify({ tracking }));
-              res.end();
-              return ;
+              //res.write(JSON.stringify({ tracking }));
+              //res.end();
+              //return ;
             }else res.write("\n");
           }catch(e){
             console.log(e);
@@ -106,9 +106,9 @@ module.exports = {
               console.log( tracking );
               //res.setHeader('Content-Type', 'application/json');
               //res.status(200).send(JSON.stringify({ tracking }));
-              res.write(JSON.stringify({ tracking }));
-              res.end();
-              return ;
+              //res.write(JSON.stringify({ tracking }));
+              //res.end();
+              //return ;
             }else res.write("\n");
           }catch(e){
             console.log(e);
@@ -143,16 +143,31 @@ module.exports = {
               console.log( tracking );
               //res.setHeader('Content-Type', 'application/json');
               //res.status(200).send(JSON.stringify({ tracking }));
-              res.write(JSON.stringify({ tracking }));
-              res.end();
-              return ;
+              //res.write(JSON.stringify({ tracking }));
+              //res.end();
+              //return ;
             }else res.write("\n");
           }catch(e){
             console.log(e);
           }
         }
       );
+
+      (function waitResults () {
+         setTimeout(function () {
+            console.log('waiting... ' + calls);
+            if(calls==callsToWait){
+              res.write(JSON.stringify({ tracking }));
+              res.end();
+              return ;
+            }else{
+              waitResults();
+            }
+         }, 1000)
+      })();
     },
+
+
 
 
 }
