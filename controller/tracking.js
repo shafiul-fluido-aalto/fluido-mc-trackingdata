@@ -18,6 +18,10 @@ module.exports = {
       var clientsecret = process.env['CLIENT_SECRET'+bu_identifier]
 
 
+      // Start sending a reponse
+      //res.setHeader('Content-Type', 'application/json');
+      res.writeHead(200, {"Content-Type" : 'application/json'});
+
       // MC API  authentication
       var FuelSoap = require('fuel-soap');
       var options = {
@@ -65,10 +69,11 @@ module.exports = {
             calls++;
             if(calls==callsToWait){
               console.log( tracking );
-              res.setHeader('Content-Type', 'application/json');
-              res.status(200).send(JSON.stringify({ tracking }));
+              //res.setHeader('Content-Type', 'application/json');
+              //res.status(200).send(JSON.stringify({ tracking }));
+              res.write(JSON.stringify({ tracking })).end();
               return ;
-            }
+            }else res.write("");
           }catch(e){
             console.log(e);
           }
@@ -98,10 +103,11 @@ module.exports = {
             calls++;
             if(calls==callsToWait){
               console.log( tracking );
-              res.setHeader('Content-Type', 'application/json');
-              res.status(200).send(JSON.stringify({ tracking }));
+              //res.setHeader('Content-Type', 'application/json');
+              //res.status(200).send(JSON.stringify({ tracking }));
+              res.write(JSON.stringify({ tracking })).end();
               return ;
-            }
+            }else res.write("");
           }catch(e){
             console.log(e);
           }
@@ -133,10 +139,11 @@ module.exports = {
             if(calls==callsToWait){
 
               console.log( tracking );
-              res.setHeader('Content-Type', 'application/json');
-              res.status(200).send(JSON.stringify({ tracking }));
+              //res.setHeader('Content-Type', 'application/json');
+              //res.status(200).send(JSON.stringify({ tracking }));
+              res.write(JSON.stringify({ tracking })).end();
               return ;
-            }
+            }else res.write("");
           }catch(e){
             console.log(e);
           }
