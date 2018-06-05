@@ -153,14 +153,17 @@ module.exports = {
         }
       );
 
+      var waits = 0;
       (function waitResults () {
          setTimeout(function () {
             console.log('waiting... ' + calls);
-            if(calls==callsToWait){
+            if(calls==callsToWait && waits > 35){
               res.write(JSON.stringify({ tracking }));
               res.end();
               return ;
             }else{
+              waits++;
+              res.write(" ");
               waitResults();
             }
          }, 1000)
