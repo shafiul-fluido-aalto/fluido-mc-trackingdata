@@ -74,7 +74,7 @@ module.exports = {
               res.write(JSON.stringify({ tracking }));
               res.end();
               return ;
-            }else res.write("");
+            }else res.write("\n");
           }catch(e){
             console.log(e);
           }
@@ -109,7 +109,7 @@ module.exports = {
               res.write(JSON.stringify({ tracking }));
               res.end();
               return ;
-            }else res.write("");
+            }else res.write("\n");
           }catch(e){
             console.log(e);
           }
@@ -146,7 +146,7 @@ module.exports = {
               res.write(JSON.stringify({ tracking }));
               res.end();
               return ;
-            }else res.write("");
+            }else res.write("\n");
           }catch(e){
             console.log(e);
           }
