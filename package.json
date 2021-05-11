@@ -15,11 +15,11 @@
     "ejs": "^2.5.6",
     "jwt-simple": "^0.5.1",
     "express": "^4.15.2",
-    "fuel-rest": "^3.0.3",
+    "fuel-rest": "^3.2.2",
     "fuel-soap": "^2.2.4"
   },
   "devDependencies": {
-    "request": "^2.81.0",
+    "request": "^2.88.2",
     "tape": "^4.7.0"
   },
   "repository": {
