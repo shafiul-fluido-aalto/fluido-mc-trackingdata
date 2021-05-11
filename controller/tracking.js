@@ -24,7 +24,7 @@ module.exports = {
 
       // MC API  authentication
       var FuelSoap = require('fuel-soap');
-        console.log('FuelSoap found? => ',FuelSoap);
+      
         
       var options = {
         auth: {
@@ -37,7 +37,8 @@ module.exports = {
       // SDK
       var SoapClient = new FuelSoap(options);
 
-
+        console.log('FuelSoap SoapClient? => ',SoapClient);
+        
       // search by SubscriberKey
       var reqoptions = {
         filter: {
