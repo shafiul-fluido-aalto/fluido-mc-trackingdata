@@ -25,13 +25,16 @@ module.exports = {
       // MC API  authentication
       var FuelSoap = require('fuel-soap');
       
-        
+        authUrl: authOrigin + 'v2/token',
+        authOptions: {
+            authVersion: 2
+        }
       var options = {
         auth: {
           clientId: clientid,
           clientSecret: clientsecret
         },
-        soapEndpoint: process.env.API_URL
+       
       };
 
       // SDK
