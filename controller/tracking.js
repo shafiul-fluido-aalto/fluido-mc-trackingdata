@@ -24,7 +24,8 @@ module.exports = {
 
       // MC API  authentication
       var FuelSoap = require('fuel-soap');
-        console.log('FuelSoap=> ',FuelSoap);
+        console.log('FuelSoap found? => ',FuelSoap);
+        
       var options = {
         auth: {
           clientId: clientid,
