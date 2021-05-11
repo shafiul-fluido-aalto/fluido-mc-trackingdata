@@ -31,7 +31,7 @@ module.exports = {
           clientId: clientid,
           clientSecret: clientsecret
         },
-        soapEndpoint: process.env['API_URL']+ 'v2/token'
+        soapEndpoint: process.env.API_URL+ 'v2/token'
        
       };
 
