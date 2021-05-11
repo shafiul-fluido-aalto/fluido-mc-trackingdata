@@ -16,7 +16,7 @@
     "jwt-simple": "^0.5.1",
     "express": "^4.15.2",
     "fuel-rest": "^3.0.3",
-    "fuel-soap": "^2.0.0"
+    "fuel-soap": "^2.2.4"
   },
   "devDependencies": {
     "request": "^2.81.0",
